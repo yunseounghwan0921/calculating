@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>웹 계산기</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="calc" role="application" aria-label="웹 계산기">
+    <section class="display">
+      <div class="history" id="history" aria-live="polite"></div>
+      <div class="value" id="value" aria-live="polite">0</div>
+    </section>
+
+    <section class="keys" aria-label="키패드">
+      <button class="key danger" data-action="clear" aria-label="모두 지우기">AC</button>
+      <button class="key accent" data-action="backspace" aria-label="한 글자 지우기">⌫</button>
+      <button class="key accent" data-action="percent" aria-label="퍼센트">%</button>
+      <button class="key op" data-op="/" aria-label="나누기">÷</button>
+
+      <button class="key" data-digit="7">7</button>
+      <button class="key" data-digit="8">8</button>
+      <button class="key" data-digit="9">9</button>
+      <button class="key op" data-op="*" aria-label="곱하기">×</button>
+
+      <button class="key" data-digit="4">4</button>
+      <button class="key" data-digit="5">5</button>
+      <button class="key" data-digit="6">6</button>
+      <button class="key op" data-op="-" aria-label="빼기">−</button>
+
+      <button class="key" data-digit="1">1</button>
+      <button class="key" data-digit="2">2</button>
+      <button class="key" data-digit="3">3</button>
+      <button class="key op" data-op="+" aria-label="더하기">+</button>
+
+      <button class="key" data-action="sign" aria-label="부호 바꾸기">±</button>
+      <button class="key span-2" data-digit="0" aria-label="0">0</button>
+      <button class="key" data-action="decimal" aria-label="소수점">.</button>
+
+      <button class="key equals span-2" data-action="equals" aria-label="결과">=</button>
+      <button class="key accent span-2" data-action="copy" aria-label="값 복사">복사</button>
+    </section>
+  </main>
+
+  <p class="sr-only" id="kbd-help">키보드: 숫자/연산자, Enter(=), Backspace(지우기), Esc(초기화)</p>
+
+  <script defer src="app.js"></script>
+</body>
+</html>

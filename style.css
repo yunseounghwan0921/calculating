@@ -1,0 +1,121 @@
+:root{
+--bg: #0f1220;
+--panel: #171a2a;
+--accent: #6ee7ff;
+--accent-2: #a78bfa;
+--text: #e8ecf1;
+--sub: #9aa4b2;
+--danger: #ff6b6b;
+--ok: #22d3a3;
+--shadow: 0 10px 30px rgba(0,0,0,.35);
+--radius: 18px;
+}
+
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+margin: 0;
+font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+background: radial-gradient(1200px 600px at 70% -10%, rgba(102,126,234,.25), transparent 60%),
+radial-gradient(900px 500px at -10% 110%, rgba(118,75,162,.2), transparent 60%),
+var(--bg);
+color: var(--text);
+display: grid;
+place-items: center;
+padding: clamp(16px, 4vw, 32px);
+}
+
+
+.calc {
+width: min(420px, 94vw);
+background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+backdrop-filter: blur(6px);
+border: 1px solid rgba(255,255,255,.08);
+border-radius: var(--radius);
+box-shadow: var(--shadow);
+overflow: hidden;
+}
+
+
+.display {
+background: linear-gradient(180deg, var(--panel), #121427);
+padding: 22px clamp(16px, 4vw, 24px);
+min-height: 116px;
+display: grid;
+align-content: end;
+gap: 8px;
+}
+
+
+.history {
+color: var(--sub);
+font-size: 0.95rem;
+min-height: 1.2em;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+
+
+.value {
+font-size: clamp(34px, 7vw, 44px);
+font-weight: 700;
+text-align: right;
+letter-spacing: 0.5px;
+}
+
+
+.keys {
+padding: 12px;
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 10px;
+background: rgba(255,255,255,.02);
+}
+
+
+button.key {
+appearance: none;
+border: 0;
+border-radius: 14px;
+padding: 16px 0;
+font-size: 1.15rem;
+font-weight: 600;
+color: var(--text);
+background: #1b1f32;
+box-shadow: inset 0 1px 0 rgba(255,255,255,.05), 0 6px 14px rgba(0,0,0,.25);
+cursor: pointer;
+transition: transform .05s ease, filter .15s ease, background .15s ease;
+user-select: none;
+-webkit-tap-highlight-color: transparent;
+}
+button.key:active { transform: translateY(1px) scale(0.995); }
+
+
+.op { background: linear-gradient(180deg, #1f2240, #1b1f36); }
+.op.active { outline: 2px solid var(--accent); }
+
+
+.accent { background: linear-gradient(180deg, #233b53, #1e2f45); }
+.danger { background: linear-gradient(180deg, #3b1c22, #2a1318); }
+
+
+.equals {
+background: linear-gradient(180deg, #0b2e37, #0e3641);
+border: 1px solid rgba(110,231,255,.25);
+}
+
+
+.span-2 { grid-column: span 2; }
+
+
+.sr-only {
+position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0;
+}
+
+
+@media (max-width: 420px) {
+button.key { padding: 18px 0; font-size: 1.2rem; }
+.display { min-height: 128px; }
+}
